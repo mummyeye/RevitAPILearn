@@ -1,19 +1,16 @@
 ﻿using Autodesk.Revit.Attributes;
 using Autodesk.Revit.DB;
-using Autodesk.Revit.UI;
-using CsharpDemo.Extension;
-using System.Windows;
+using CsharpDemo.Utils;
 
 namespace CsharpDemo.Cmd
 {
     [Transaction(TransactionMode.Manual)]
-    class Cmd : IExternalCommand
+    class Cmd : RevitCommand
     {
-        public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
+        public override void Action()
         {
-            var uidoc = commandData.Init();
-            MessageBox.Show(uidoc.GetHashCode().ToString());
-            return Result.Succeeded;
+            Uidoc.Selection.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Element);
+            throw new System.Exception();
         }
     }
 }

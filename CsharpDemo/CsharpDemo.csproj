@@ -83,6 +83,7 @@
     <Compile Include="Extension\FamilyInstanceExtension.cs" />
     <Compile Include="Extension\XmlPushButtonDataExtension.cs" />
     <Compile Include="Updater\UpdaterParamterByTypeName.cs" />
+    <Compile Include="Utils\RevitCommand.cs" />
     <Compile Include="Utils\RevitTask.cs" />
     <Compile Include="Model\XmlPushButtonData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
