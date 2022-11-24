@@ -8,26 +8,27 @@ namespace CsharpDemo.Attributes
         /// 功能名称 
         /// => 32x32 功能名称.png
         /// => 16x16 功能名称_16.png
-        /// => 32x32 功能名称_355.png
+        /// => 355x355 功能名称_355.png
         /// </summary>
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>
         /// 提示
         /// </summary>
-        public string ToolTip { get; set; }
+        public string ToolTip { get; }
 
         /// <summary>
         /// 长提示
         /// </summary>
-        public string Description { get; set; }
+        public string Description { get; }
 
         /// <summary>
         /// 构造
         /// </summary>
-        /// <param name="name"></param>
-        /// <param name="tooltip"></param>
-        public XmlAttribute(string name, string tooltip = "qq交流群:17075104", string description="微信:zedmoster")
+        /// <param name="name">功能名称</param>
+        /// <param name="tooltip">功能提示</param>
+        /// <param name="description">功能长提示</param>
+        public XmlAttribute(string name, string tooltip = "qq群:17075104", string description = "微信:zedmoster")
         {
             Name = name;
             ToolTip = tooltip;
