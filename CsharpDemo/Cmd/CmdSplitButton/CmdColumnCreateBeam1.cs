@@ -10,7 +10,7 @@ using CsharpDemo.Views;
 namespace CsharpDemo.Cmd.CmdSplitButton
 {
     [Transaction(TransactionMode.Manual)]
-    public class CmdColumnCreateBeam : IExternalCommand
+    public class CmdColumnCreateBeam1 : IExternalCommand
     {
         [Xml("柱顶成梁1", "选择两个结构柱,柱子顶端自动创建梁(模态窗口)")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
