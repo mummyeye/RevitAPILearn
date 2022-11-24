@@ -57,7 +57,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Attributes\XmlAttribute.cs" />
-    <Compile Include="Cmd\CmdSplitButton\CmdColumnCreateBeam.cs" />
+    <Compile Include="Cmd\CmdSplitButton\CmdColumnCreateBeam1.cs" />
     <Compile Include="Cmd\CmdSplitButton\CmdColumnCreateBeam3.cs" />
     <Compile Include="Cmd\CmdSplitButton\CmdColumnCreateBeam2.cs" />
     <Compile Include="Cmd\Cmd.cs" />

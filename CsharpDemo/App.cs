@@ -43,7 +43,8 @@ namespace CsharpDemo
                 LargeImage = Properties.Resources.API.GetImageBitmapSource()
             };
             var pulldownButton = panel.AddItem(pullDownButtonData) as PulldownButton;
-            var typesPullDowButton = typeof(App).Assembly.GetTypes().Where(o => o.IsClass && o.IsPublic && o.Namespace == "CsharpDemo.Cmd.CmdPullDowButton");
+            var typesPullDowButton = typeof(App).Assembly.GetTypes().OrderBy(o => o.Name)
+                .Where(o => o.IsClass && o.IsPublic && o.Namespace == "CsharpDemo.Cmd.CmdPullDowButton");
             foreach (var type in typesPullDowButton)
             {
                 pulldownButton.AddPushButton(type.GetPushButtonData());
@@ -58,7 +59,8 @@ namespace CsharpDemo
                 LargeImage = Properties.Resources.API.GetImageBitmapSource()
             };
             var splitButton = panel.AddItem(splitButtonData) as SplitButton;
-            var typesSplitButton = typeof(App).Assembly.GetTypes().Where(o => o.IsClass && o.IsPublic && o.Namespace == "CsharpDemo.Cmd.CmdSplitButton");
+            var typesSplitButton = typeof(App).Assembly.GetTypes().OrderBy(o => o.Name)
+                .Where(o => o.IsClass && o.IsPublic && o.Namespace == "CsharpDemo.Cmd.CmdSplitButton");
             foreach (var type in typesSplitButton)
             {
                 splitButton.AddPushButton(type.GetPushButtonData());
