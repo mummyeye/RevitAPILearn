@@ -1,7 +1,6 @@
 ﻿using Autodesk.Revit.UI;
 using System;
 using System.Diagnostics;
-using System.Windows;
 
 namespace CsharpDemo.Utils
 {
@@ -10,12 +9,12 @@ namespace CsharpDemo.Utils
         /// <summary>
         /// 外部事件接口封装类
         /// </summary>
-        private ExternalEventHandler Handler { get; set; }
+        private ExternalEventHandler Handler { get; }
 
         /// <summary>
         /// 外部事件
         /// </summary>
-        private ExternalEvent ExternalEvent { get; set; }
+        private ExternalEvent ExternalEvent { get; }
 
         /// <summary>
         /// 构造

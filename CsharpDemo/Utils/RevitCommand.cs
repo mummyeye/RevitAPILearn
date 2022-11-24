@@ -4,7 +4,7 @@ using CsharpDemo.Extension;
 
 namespace CsharpDemo.Utils
 {
-    internal abstract class RevitCommand : IExternalCommand
+    public abstract class RevitCommand : IExternalCommand
     {
         /// <summary>
         /// 具体功能逻辑实现
