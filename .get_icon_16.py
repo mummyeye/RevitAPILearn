@@ -1,5 +1,5 @@
 # -*- coding:utf-8 -*-
-
+# pip install pillow
 from PIL import Image
 import os
 import time

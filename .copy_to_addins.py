@@ -21,6 +21,7 @@ def copy_search_file(srcDir, desDir):
 
 
 if __name__ == '__main__':
+    # [2021,2020,2019]
     version = [2021]
     for ver in version:
         # dll

@@ -51,6 +51,21 @@ namespace CsharpDemo
             panel.AddSeparator();
             #endregion
 
+            #region CsharpDemo.Cmd.CmdSplitButton
+            var splitButtonData = new SplitButtonData("下拉功能", "下拉功能")
+            {
+                Image = Properties.Resources.API_16.GetImageBitmapSource(),
+                LargeImage = Properties.Resources.API.GetImageBitmapSource()
+            };
+            var splitButton = panel.AddItem(splitButtonData) as SplitButton;
+            var typesSplitButton = typeof(App).Assembly.GetTypes().Where(o => o.IsClass && o.IsPublic && o.Namespace == "CsharpDemo.Cmd.CmdSplitButton");
+            foreach (var type in typesSplitButton)
+            {
+                splitButton.AddPushButton(type.GetPushButtonData());
+            }
+            panel.AddSeparator();
+            #endregion
+
             #region CsharpDemo.Cmd
             var types = typeof(App).Assembly.GetTypes().Where(o => o.IsClass && o.IsPublic && o.Namespace == "CsharpDemo.Cmd");
             foreach (var type in types)
