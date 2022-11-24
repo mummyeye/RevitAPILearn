@@ -4,6 +4,7 @@ using CsharpDemo.Extension;
 using System;
 using System.Reflection;
 using System.Windows.Media.Imaging;
+using System.Xml.Linq;
 
 namespace CsharpDemo.Model
 {
@@ -33,9 +34,9 @@ namespace CsharpDemo.Model
                 {
                     NameSpace = Type.FullName;
                     AssemblyName = Type.Assembly.Location;
-                    ButtonName = GetAttributeByMethodName(Type);
-                    Tooltip = GetAttributeByMethodNameTooltip(Type);
-                    Description = GetAttributeByMethodNameDescription(Type);
+                    ButtonName = GetXmlAttribute(Type)?.Name ?? Type.Name;
+                    Tooltip = GetXmlAttribute(Type)?.ToolTip ?? "qq群:17075104";
+                    Description = GetXmlAttribute(Type)?.Description ?? "微信:zedmoster";
                     Image = GetResourcesByImageName($"CsharpDemo.Resources.{ButtonName}.png");
                     StackedImage = GetResourcesByImageName($"CsharpDemo.Resources.{ButtonName}_16.png");
                     TooltipImage = GetResourcesByImageName($"CsharpDemo.Resources.{ButtonName}_355.png");
@@ -130,56 +131,19 @@ namespace CsharpDemo.Model
             set { tooltipImage = value; }
         }
 
-
         /// <summary>
-        /// 方法特性 Name
+        /// 获取标签属性
         /// </summary>
         /// <param name="type"></param>
-        /// <param name="name"></param>
         /// <returns></returns>
-        private string GetAttributeByMethodName(Type type, string name = "Execute")
+        private XmlAttribute GetXmlAttribute(Type type)
         {
-            var methodInfo = type.GetMethod(name);
+            var methodInfo = type.GetMethod("Action") ?? type.GetMethod("Execute");
             if (methodInfo != null && Attribute.IsDefined(methodInfo, typeof(XmlAttribute)))
             {
-                var attribute = Attribute.GetCustomAttribute(methodInfo, typeof(XmlAttribute)) as XmlAttribute;
-                return attribute.Name;
+                return Attribute.GetCustomAttribute(methodInfo, typeof(XmlAttribute)) as XmlAttribute;
             }
-            return type.Name;
-        }
-
-        /// <summary>
-        /// 方法特性 Tooltip
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        private string GetAttributeByMethodNameTooltip(Type type, string name = "Execute")
-        {
-            var methodInfo = type.GetMethod(name);
-            if (methodInfo != null && Attribute.IsDefined(methodInfo, typeof(XmlAttribute)))
-            {
-                var attribute = Attribute.GetCustomAttribute(methodInfo, typeof(XmlAttribute)) as XmlAttribute;
-                return attribute.ToolTip;
-            }
-            return "qq群:17075104";
-        }
-
-        /// <summary>
-        /// 方法特性 Description
-        /// </summary>
-        /// <param name="type"></param>
-        /// <param name="name"></param>
-        /// <returns></returns>
-        private string GetAttributeByMethodNameDescription(Type type, string name = "Execute")
-        {
-            var methodInfo = type.GetMethod(name);
-            if (methodInfo != null && Attribute.IsDefined(methodInfo, typeof(XmlAttribute)))
-            {
-                var attribute = Attribute.GetCustomAttribute(methodInfo, typeof(XmlAttribute)) as XmlAttribute;
-                return attribute.Description;
-            }
-            return "vx:zedmoster";
+            return default;
         }
 
         /// <summary>

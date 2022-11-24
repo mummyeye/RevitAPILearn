@@ -40,7 +40,7 @@ namespace CsharpDemo
             var pullDownButtonData = new PulldownButtonData("API学习", "API学习")
             {
                 Image = Properties.Resources.API_16.GetImageBitmapSource(),
-                LargeImage = Properties.Resources.API.GetImageBitmapSource()
+                LargeImage = Properties.Resources.API.GetImageBitmapSource(),
             };
             var pulldownButton = panel.AddItem(pullDownButtonData) as PulldownButton;
             var typesPullDowButton = typeof(App).Assembly.GetTypes().OrderBy(o => o.Name)
