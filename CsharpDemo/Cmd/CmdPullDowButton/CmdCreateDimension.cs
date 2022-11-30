@@ -7,10 +7,10 @@ using CsharpDemo.Extension;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("创建尺寸标注")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateDimension : IExternalCommand
     {
-        [Xml("创建尺寸标注")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uidoc = commandData.Application.ActiveUIDocument;

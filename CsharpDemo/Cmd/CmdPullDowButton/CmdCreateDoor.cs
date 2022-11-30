@@ -7,10 +7,10 @@ using System.Linq;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("创建门")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateDoor : IExternalCommand
     {
-        [Xml("创建门")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var doc = commandData.Application.ActiveUIDocument.Document;

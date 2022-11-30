@@ -6,10 +6,10 @@ using CsharpDemo.Extension;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("创建轴网")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateGrids : IExternalCommand
     {
-        [Xml("创建轴网")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var doc = commandData.Application.ActiveUIDocument.Document;

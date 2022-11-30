@@ -7,10 +7,10 @@ using System;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("修改图元")]
     [Transaction(TransactionMode.Manual)]
     public class CmdElementTransformUtils : RevitCommand
     {
-        [Xml("修改图元")]
         public override void Action()
         {
             var uidoc = Uidoc;

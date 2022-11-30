@@ -4,7 +4,6 @@ using CsharpDemo.Extension;
 using System;
 using System.Reflection;
 using System.Windows.Media.Imaging;
-using System.Xml.Linq;
 
 namespace CsharpDemo.Model
 {
@@ -138,12 +137,7 @@ namespace CsharpDemo.Model
         /// <returns></returns>
         private XmlAttribute GetXmlAttribute(Type type)
         {
-            var methodInfo = type.GetMethod("Action") ?? type.GetMethod("Execute");
-            if (methodInfo != null && Attribute.IsDefined(methodInfo, typeof(XmlAttribute)))
-            {
-                return Attribute.GetCustomAttribute(methodInfo, typeof(XmlAttribute)) as XmlAttribute;
-            }
-            return default;
+            return type.GetCustomAttribute<XmlAttribute>();
         }
 
         /// <summary>

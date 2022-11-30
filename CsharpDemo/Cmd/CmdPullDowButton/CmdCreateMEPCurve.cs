@@ -8,10 +8,10 @@ using System.Linq;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("创建风管")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateMEPCurve : IExternalCommand
     {
-        [Xml("创建风管")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var doc = commandData.Application.ActiveUIDocument.Document;

@@ -5,10 +5,10 @@ using CsharpDemo.Attributes;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("反转背景", "反转Revit窗口背景颜色")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateBGColor : IExternalCommand
     {
-        [Xml("反转背景", "反转Revit窗口背景颜色")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uiapp = commandData.Application;

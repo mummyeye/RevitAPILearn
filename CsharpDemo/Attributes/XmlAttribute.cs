@@ -2,6 +2,7 @@
 
 namespace CsharpDemo.Attributes
 {
+    [AttributeUsage(AttributeTargets.Class)]
     internal class XmlAttribute : Attribute
     {
         /// <summary>

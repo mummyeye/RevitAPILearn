@@ -7,10 +7,10 @@ using System.Linq;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("选择方式")]
     [Transaction(TransactionMode.Manual)]
     class CmdSelection : RevitCommand
     {
-        [Xml("选择方式")]
         public override void Action()
         {
             var uidoc = Uidoc;

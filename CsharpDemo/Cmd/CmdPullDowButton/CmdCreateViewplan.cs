@@ -7,10 +7,10 @@ using System.Linq;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("创建平面视图", "标高生成指定类型的视图")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateViewplan : IExternalCommand
     {
-        [Xml("创建平面视图", "标高生成指定类型的视图")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var doc = commandData.Application.ActiveUIDocument.Document;

@@ -9,10 +9,10 @@ using CsharpDemo.Attributes;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("房间填充区域")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateRoom2FilledRegion : IExternalCommand
     {
-        [Xml("房间填充区域")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var doc = commandData.Application.ActiveUIDocument.Document;

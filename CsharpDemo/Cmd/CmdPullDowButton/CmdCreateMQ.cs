@@ -8,10 +8,10 @@ using System.Linq;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("幕墙随机参数")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateMQ : IExternalCommand
     {
-        [Xml("幕墙随机参数")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var doc = commandData.Application.ActiveUIDocument.Document;

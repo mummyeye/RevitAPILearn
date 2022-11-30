@@ -6,10 +6,10 @@ using CsharpDemo.Extension;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("创建标高")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateLevels : IExternalCommand
     {
-        [Xml("创建标高")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var doc = commandData.Application.ActiveUIDocument.Document;

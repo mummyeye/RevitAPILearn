@@ -8,10 +8,10 @@ using System.Collections.Generic;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("创建模型组")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateGroup : IExternalCommand
     {
-        [Xml("创建模型组")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var uidoc = commandData.Application.ActiveUIDocument;

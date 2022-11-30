@@ -7,10 +7,10 @@ using CsharpDemo.Attributes;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("幕墙屋顶")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateRoof : IExternalCommand
     {
-        [Xml("幕墙屋顶")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var doc = commandData.Application.ActiveUIDocument.Document;

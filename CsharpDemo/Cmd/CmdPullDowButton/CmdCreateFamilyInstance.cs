@@ -7,10 +7,10 @@ using CsharpDemo.Attributes;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
+    [Xml("创建族实例")]
     [Transaction(TransactionMode.Manual)]
     public class CmdCreateFamilyInstance : IExternalCommand
     {
-        [Xml("创建族实例")]
         public Result Execute(ExternalCommandData commandData, ref string message, ElementSet elements)
         {
             var doc = commandData.Application.ActiveUIDocument.Document;
