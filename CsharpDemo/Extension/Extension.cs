@@ -26,5 +26,25 @@ namespace CsharpDemo.Extension
         {
             new WindowInteropHelper(window).Owner = XmlDoc.Instance.UIdoc.Application.MainWindowHandle;
         }
+
+        /// <summary>
+        /// mm 2 feet
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static double MM2Feet(this double value)
+        {
+            return value / 304.8;
+        }
+
+        /// <summary>
+        /// feet 2 mm
+        /// </summary>
+        /// <param name="value"></param>
+        /// <returns></returns>
+        public static double Feet2MM(this double value)
+        {
+            return value * 304.8;
+        }
     }
 }
