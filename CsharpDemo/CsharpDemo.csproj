@@ -57,6 +57,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Attributes\XmlAttribute.cs" />
+    <Compile Include="Cmd\CmdPullDowButton\CmdDetailCurve.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdElementTransformUtils.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdSelection.cs" />
     <Compile Include="Cmd\CmdRevitCommand.cs" />
