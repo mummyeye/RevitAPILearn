@@ -3,7 +3,6 @@ using Autodesk.Revit.UI;
 using Autodesk.Revit.UI.Selection;
 using CsharpDemo.SelectionFilter;
 using System;
-using System.CodeDom;
 using System.Collections.Generic;
 using System.Linq;
 

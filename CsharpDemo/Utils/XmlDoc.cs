@@ -1,4 +1,6 @@
 ﻿using Autodesk.Revit.UI;
+using System;
+using System.Windows;
 
 namespace CsharpDemo.Utils
 {
@@ -20,5 +22,22 @@ namespace CsharpDemo.Utils
         /// IExternalEventHandler
         /// </summary>
         public RevitTask Task { get; set; }
+
+        #region 方法
+
+        /// <summary>
+        /// 弹窗提示
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="msg"></param>
+        /// <returns></returns>
+        public static MessageBoxResult Print<T>(T msg,
+            MessageBoxButton button = MessageBoxButton.OK,
+            MessageBoxImage image = MessageBoxImage.Information)
+        {
+            return MessageBox.Show($"{msg}", "提示", button, image);
+        }
+
+        #endregion
     }
 }

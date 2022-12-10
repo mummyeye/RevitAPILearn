@@ -2,6 +2,7 @@
 using CsharpDemo.Utils;
 using System.Windows.Interop;
 using System.Windows;
+using Autodesk.Revit.DB;
 
 namespace CsharpDemo.Extension
 {
@@ -45,6 +46,17 @@ namespace CsharpDemo.Extension
         public static double Feet2MM(this double value)
         {
             return value * 304.8;
+        }
+
+        /// <summary>
+        /// uv 2 xyz
+        /// </summary>
+        /// <param name="uv"></param>
+        /// <param name="z"></param>
+        /// <returns></returns>
+        public static XYZ ToXYZ(this UV uv, double z = 0)
+        {
+            return new XYZ(uv.U, uv.V, z);
         }
     }
 }
