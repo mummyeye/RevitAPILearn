@@ -7,7 +7,7 @@ using CsharpDemo.Utils;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace CsharpDemo.Cmd
+namespace CsharpDemo.Cmd.CmdPullDowButton
 {
     [Xml("自动连管")]
     [Transaction(TransactionMode.Manual)]
