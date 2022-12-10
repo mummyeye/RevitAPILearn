@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Attributes\XmlAttribute.cs" />
+    <Compile Include="Cmd\CmdPullDowButton\CmdWallJoinAt.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdBeamJoinAtEnd.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdLinkDwg.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdBoundingBoxIntersectsFilter.cs" />
@@ -91,6 +92,7 @@
     <Compile Include="Extension\ElementIdExtension.cs" />
     <Compile Include="Extension\Extension.cs" />
     <Compile Include="Extension\FamilyInstanceExtension.cs" />
+    <Compile Include="Extension\MEPCurveExtension.cs" />
     <Compile Include="Extension\ReferenceExtension.cs" />
     <Compile Include="Extension\XmlPushButtonDataExtension.cs" />
     <Compile Include="Updater\UpdaterParamterByTypeName.cs" />

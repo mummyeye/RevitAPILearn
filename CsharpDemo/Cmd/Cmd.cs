@@ -5,14 +5,13 @@ using CsharpDemo.Utils;
 
 namespace CsharpDemo.Cmd
 {
-    [Xml("墙端点连接")]
+    [Xml("test")]
     [Transaction(TransactionMode.Manual)]
     class Cmd : RevitCommand
     {
         public override void Action()
         {
-            var doc = Uidoc.Document;
-
+            
         }
     }
 }

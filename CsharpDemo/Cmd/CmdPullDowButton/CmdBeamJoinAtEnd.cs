@@ -5,7 +5,7 @@ using CsharpDemo.Attributes;
 using CsharpDemo.Extension;
 using CsharpDemo.Utils;
 
-namespace CsharpDemo.Cmd
+namespace CsharpDemo.Cmd.CmdPullDowButton
 {
     [Xml("梁端点连接")]
     [Transaction(TransactionMode.Manual)]
