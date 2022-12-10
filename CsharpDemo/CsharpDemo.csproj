@@ -64,6 +64,7 @@
     <Compile Include="Cmd\CmdPullDowButton\CmdDetailCurve.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdElementTransformUtils.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdSelection.cs" />
+    <Compile Include="Cmd\CmdPullDowButton\CmdViewSheet.cs" />
     <Compile Include="Cmd\CmdRevitCommand.cs" />
     <Compile Include="Cmd\CmdSplitButton\CmdColumnCreateBeam1.cs" />
     <Compile Include="Cmd\CmdSplitButton\CmdColumnCreateBeam3.cs" />

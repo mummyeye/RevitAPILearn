@@ -9,7 +9,7 @@ namespace CsharpDemo.Cmd
 {
     [Xml("梁端点连接")]
     [Transaction(TransactionMode.Manual)]
-    class Cmd : RevitCommand
+    public class CmdBeamJoinAtEnd : RevitCommand
     {
         public override void Action()
         {
