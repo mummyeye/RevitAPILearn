@@ -58,6 +58,7 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Attributes\XmlAttribute.cs" />
+    <Compile Include="Cmd\CmdPullDowButton\CmdBeamJoinAtEnd.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdLinkDwg.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdBoundingBoxIntersectsFilter.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdTextNote.cs" />
