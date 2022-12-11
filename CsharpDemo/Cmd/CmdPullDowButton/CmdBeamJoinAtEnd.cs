@@ -4,27 +4,29 @@ using Autodesk.Revit.DB.Structure;
 using CsharpDemo.Attributes;
 using CsharpDemo.Extension;
 using CsharpDemo.Utils;
+using System.Linq;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
-    [Xml("梁端点连接")]
+    [Xml("梁端部不允许连接")]
     [Transaction(TransactionMode.Manual)]
     public class CmdBeamJoinAtEnd : RevitCommand
     {
         public override void Action()
         {
             var doc = Uidoc.Document;
-            var beams = doc.OfClass<FamilyInstance>(BuiltInCategory.OST_StructuralFraming);
-            doc.Transaction(t =>
+            var beams = doc.OfClass<FamilyInstance>(doc.ActiveView);
+            if (beams.Any())
             {
-                foreach (var beam in beams)
+                doc.Transaction(t =>
                 {
-                    StructuralFramingUtils.DisallowJoinAtEnd(beam, 0);
-                    StructuralFramingUtils.DisallowJoinAtEnd(beam, 1);
-                    //StructuralFramingUtils.AllowJoinAtEnd(beam, 0);
-                    //StructuralFramingUtils.AllowJoinAtEnd(beam, 1);
-                }
-            }, "梁端点连接");
+                    foreach (var item in beams)
+                    {
+                        StructuralFramingUtils.DisallowJoinAtEnd(item, 0);
+                        StructuralFramingUtils.DisallowJoinAtEnd(item, 1);
+                    }
+                }, "梁端部不允许连接");
+            }
         }
     }
 }
