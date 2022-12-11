@@ -9,59 +9,66 @@ using System.Linq;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
-    [Xml("自动连管")]
+    [Xml("自动链接管道系统")]
     [Transaction(TransactionMode.Manual)]
     public class CmdElbowFitting : RevitCommand
     {
         public override void Action()
         {
             var doc = Uidoc.Document;
-            var groups = doc.OfClass<Pipe>(doc.ActiveView).GroupBy(o => o.MEPSystem.GetTypeId());
-            doc.Transaction(t =>
+            var groupPipes = doc.OfClass<Pipe>(doc.ActiveView)
+                .GroupBy(o => o.MEPSystem.GetTypeId());
+            if (groupPipes.Any())
             {
-                foreach (var g in groups)
+                doc.Transaction(t =>
                 {
-                    var pipes = g.ToList();
-                    foreach (var pipe in pipes)
+                    foreach (var item in groupPipes)
                     {
-                        var connectors = pipe.GetUnusedConnectors();
-                        foreach (var connector in connectors)
+                        var pipes = item.ToList();
+                        foreach (var pipe in pipes)
                         {
-                            LinkConnector(connector, pipes);
+                            var connectors = pipe.GetUnusedConnectors();
+                            foreach (var connector1 in connectors)
+                            {
+                                var connector2 = GetMinDistnaceConnector(connector1, pipes);
+                                if (connector2 != null)
+                                {
+                                    doc.Create.NewElbowFitting(connector1, connector2);
+                                }
+                            }
                         }
                     }
-                }
-            }, "自动连管");
+                }, "自动链接管道系统");
+            }
         }
 
         /// <summary>
-        /// 连接管线
+        /// 获取同系统管线最近的管线连接件
         /// </summary>
-        /// <param name="connector"></param>
+        /// <param name="connector1"></param>
         /// <param name="pipes"></param>
-        /// <param name="i"> 相对距离系数和自身长度有关</param>
-        private void LinkConnector(Connector connector, List<Pipe> pipes, double i = 0.35)
+        /// <param name="s"></param>
+        /// <returns></returns>
+        private Connector GetMinDistnaceConnector(Connector connector1, List<Pipe> pipes, double s = 0.5)
         {
             var connector2 = default(Connector);
-            var mindistance = (connector.Owner.Location as LocationCurve).Curve.Length * i;
+            var mindist = (connector1.Owner.Location as LocationCurve).Curve.Length * s;
             foreach (var item in pipes)
             {
-                if (item.Id == connector.Owner.Id) continue;
-                var connectors = item.GetUnusedConnectors();
-                foreach (var conn in connectors)
+                if (item.Id == connector1.Owner.Id) continue;
+                var conns = item.GetUnusedConnectors();
+                foreach (var connector in conns)
                 {
-                    var dist = conn.Origin.DistanceTo(connector.Origin);
-                    if (dist < mindistance)
+                    var distance = connector.Origin.DistanceTo(connector1.Origin);
+                    if (distance < mindist)
                     {
-                        mindistance = dist;
-                        connector2 = conn;
+                        mindist = distance;
+                        connector2 = connector;
                     }
                 }
             }
-            if (connector2 != null)
-            {
-                connector.Owner.Document.Create.NewElbowFitting(connector, connector2);
-            }
+            return connector2;
         }
+
     }
 }
