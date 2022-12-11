@@ -3,33 +3,37 @@ using Autodesk.Revit.DB;
 using CsharpDemo.Attributes;
 using CsharpDemo.Extension;
 using CsharpDemo.Utils;
+using System.Linq;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
-    [Xml("墙端点连接")]
+    [Xml("墙端部连接")]
     [Transaction(TransactionMode.Manual)]
     class CmdWallJoinAt : RevitCommand
     {
         public override void Action()
         {
             var doc = Uidoc.Document;
-            var walls = doc.OfClass<Wall>();
-            doc.Transaction(t =>
+            var walls = doc.OfClass<Wall>(doc.ActiveView);
+            if (walls.Any())
             {
-                foreach (var wall in walls)
+                doc.Transaction(t =>
                 {
-                    JoinAt(wall, 0);
-                    JoinAt(wall, 1);
-                }
-            }, "墙端点连接");
+                    foreach (var item in walls)
+                    {
+                        JoinAt(item, 0);
+                        JoinAt(item, 1);
+                    }
+                }, "墙端部连接");
+            }
         }
 
         /// <summary>
-        /// 墙端部连接状态
+        /// 反转墙端部连接属性
         /// </summary>
         /// <param name="wall"></param>
         /// <param name="index"></param>
-        private static void JoinAt(Wall wall, int index)
+        private void JoinAt(Wall wall, int index)
         {
             if (WallUtils.IsWallJoinAllowedAtEnd(wall, index))
             {
