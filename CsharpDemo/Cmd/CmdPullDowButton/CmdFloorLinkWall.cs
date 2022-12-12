@@ -9,7 +9,7 @@ namespace CsharpDemo.Cmd.CmdPullDowButton
 {
     [Xml("楼板连接墙")]
     [Transaction(TransactionMode.Manual)]
-    public class CmdBoundingBoxIntersectsFilter : RevitCommand
+    public class CmdFloorLinkWall : RevitCommand
     {
         public override void Action()
         {

@@ -82,23 +82,5 @@ namespace CsharpDemo.Extension
         {
             return new SelectionFilterBase(func1, func2);
         }
-
-        /// <summary>
-        /// 包围盒碰撞检测
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="doc"></param>
-        /// <param name="el"></param>
-        /// <param name="category"></param>
-        /// <returns></returns>
-        public static List<T> TBoundingBoxIntersectsFilter<T>(this Document doc, Element el, BuiltInCategory category) where T : Element
-        {
-            var box = el.get_BoundingBox(null);
-            if (box == null) return default;
-            var filter = new BoundingBoxIntersectsFilter(new Outline(box.Min, box.Max));
-            var collector = new FilteredElementCollector(doc)
-                .OfClass(typeof(T)).OfCategory(category).WhereElementIsNotElementType();
-            return collector.WherePasses(filter).Cast<T>().ToList();
-        }
     }
 }
