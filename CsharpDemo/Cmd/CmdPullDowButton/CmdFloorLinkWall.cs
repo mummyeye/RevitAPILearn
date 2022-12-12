@@ -3,10 +3,11 @@ using Autodesk.Revit.DB;
 using CsharpDemo.Attributes;
 using CsharpDemo.Extension;
 using CsharpDemo.Utils;
+using System.Linq;
 
 namespace CsharpDemo.Cmd.CmdPullDowButton
 {
-    [Xml("Box过滤器")]
+    [Xml("楼板连接墙")]
     [Transaction(TransactionMode.Manual)]
     public class CmdBoundingBoxIntersectsFilter : RevitCommand
     {
@@ -18,8 +19,12 @@ namespace CsharpDemo.Cmd.CmdPullDowButton
             var r = sel.PickObject(Autodesk.Revit.UI.Selection.ObjectType.Element,
                 doc.FilterElement(o => o is Floor));
             var floor = r.GetElement(doc) as Floor;
-            var walls = doc.TBoundingBoxIntersectsFilter<Wall>(floor, BuiltInCategory.OST_Walls);
-            doc.Transaction(t => walls.ForEach(w => JoinTwoElement(doc, floor, w)), "自动连接");
+            var box = floor.get_BoundingBox(null);
+            var filter = new BoundingBoxIntersectsFilter(new Outline(box.Min, box.Max));
+            var collector = new FilteredElementCollector(doc)
+                .OfCategory(BuiltInCategory.OST_Walls).WhereElementIsNotElementType();
+            var walls = collector.WherePasses(filter).ToElements().ToList();
+            doc.Transaction(t => walls.ForEach(w => JoinTwoElement(doc, floor, w)), "楼板连接墙");
         }
 
         /// <summary>

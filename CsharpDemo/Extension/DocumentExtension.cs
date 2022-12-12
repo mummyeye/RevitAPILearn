@@ -96,8 +96,8 @@ namespace CsharpDemo.Extension
             var box = el.get_BoundingBox(null);
             if (box == null) return default;
             var filter = new BoundingBoxIntersectsFilter(new Outline(box.Min, box.Max));
-            var collector = new FilteredElementCollector(doc).OfClass(typeof(T))
-                .OfCategory(category).WhereElementIsNotElementType();
+            var collector = new FilteredElementCollector(doc)
+                .OfClass(typeof(T)).OfCategory(category).WhereElementIsNotElementType();
             return collector.WherePasses(filter).Cast<T>().ToList();
         }
     }
