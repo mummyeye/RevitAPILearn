@@ -52,6 +52,22 @@ namespace CsharpDemo
             panel.AddSeparator();
             #endregion
 
+            #region CsharpDemo.Cmd.CmdPullDowButton2
+            var pullDownButtonData2 = new PulldownButtonData("API学习2", "API学习2")
+            {
+                Image = Properties.Resources.API_16.GetImageBitmapSource(),
+                LargeImage = Properties.Resources.API.GetImageBitmapSource(),
+            };
+            var pulldownButton2 = panel.AddItem(pullDownButtonData2) as PulldownButton;
+            var typesPullDowButton2 = typeof(App).Assembly.GetTypes().OrderBy(o => o.Name)
+                .Where(o => o.IsClass && o.IsPublic && o.Namespace == "CsharpDemo.Cmd.CmdPullDowButton2");
+            foreach (var type in typesPullDowButton2)
+            {
+                pulldownButton2.AddPushButton(type.GetPushButtonData());
+            }
+            panel.AddSeparator();
+            #endregion
+
             #region CsharpDemo.Cmd.CmdSplitButton
             var splitButtonData = new SplitButtonData("下拉功能", "下拉功能")
             {
