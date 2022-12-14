@@ -58,11 +58,13 @@
   <ItemGroup>
     <Compile Include="App.cs" />
     <Compile Include="Attributes\XmlAttribute.cs" />
+    <Compile Include="Cmd\CmdPullDowButton2\CmdRevisionCloud.cs" />
+    <Compile Include="Cmd\CmdPullDowButton2\CmdExportImage.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdElbowFitting.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdWallJoinAt.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdBeamJoinAtEnd.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdLinkDwg.cs" />
-    <Compile Include="Cmd\CmdPullDowButton\CmdBoundingBoxIntersectsFilter.cs" />
+    <Compile Include="Cmd\CmdPullDowButton\CmdFloorLinkWall.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdTextNote.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdDetailCurve.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdElementTransformUtils.cs" />
@@ -72,7 +74,6 @@
     <Compile Include="Cmd\CmdSplitButton\CmdColumnCreateBeam1.cs" />
     <Compile Include="Cmd\CmdSplitButton\CmdColumnCreateBeam3.cs" />
     <Compile Include="Cmd\CmdSplitButton\CmdColumnCreateBeam2.cs" />
-    <Compile Include="Cmd\Cmd.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdCreateBGColor.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdCreateMQ.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdCreateRoom2FilledRegion.cs" />
@@ -156,5 +157,6 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\cmd_16.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
