@@ -65,7 +65,7 @@ namespace CsharpDemo.Extension
                 catch (System.Exception ex)
                 {
                     t.RollBack();
-                    TaskDialog.Show("异常", $"事务运行异常:{ex.Message}");
+                    TaskDialog.Show("异常", $"事务运行异常:{ex}");
                 }
             }
 
