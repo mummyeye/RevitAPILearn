@@ -91,6 +91,7 @@
     <Compile Include="Cmd\CmdPullDowButton\CmdCreateWalls.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdCreateGrids.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdCreateLevels.cs" />
+    <Compile Include="Extension\CurveExtension.cs" />
     <Compile Include="Extension\DocumentExtension.cs" />
     <Compile Include="Extension\ElementIdExtension.cs" />
     <Compile Include="Extension\Extension.cs" />
@@ -98,6 +99,7 @@
     <Compile Include="Extension\MEPCurveExtension.cs" />
     <Compile Include="Extension\ReferenceExtension.cs" />
     <Compile Include="Extension\XmlPushButtonDataExtension.cs" />
+    <Compile Include="Extension\XYZExtension.cs" />
     <Compile Include="Updater\UpdaterParamterByTypeName.cs" />
     <Compile Include="Utils\RevitCommand.cs" />
     <Compile Include="Utils\RevitTask.cs" />
