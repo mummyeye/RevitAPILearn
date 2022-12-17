@@ -15,6 +15,10 @@ namespace CsharpDemo.Utils
         /// uidoc
         /// </summary>
         public UIDocument Uidoc { get; private set; }
+        /// <summary>
+        /// document
+        /// </summary>
+        protected Document Doc => Uidoc?.Document;
 
         /// <summary>
         /// IExternalCommand

@@ -59,6 +59,7 @@
     <Compile Include="App.cs" />
     <Compile Include="Attributes\XmlAttribute.cs" />
     <Compile Include="Cmd\CmdPullDowButton2\CmdBreakMEPCurve.cs" />
+    <Compile Include="Cmd\CmdPullDowButton2\CmdReferenceIntersector.cs" />
     <Compile Include="Cmd\CmdPullDowButton2\CmdRevisionCloud.cs" />
     <Compile Include="Cmd\CmdPullDowButton2\CmdExportImage.cs" />
     <Compile Include="Cmd\CmdPullDowButton\CmdElbowFitting.cs" />
